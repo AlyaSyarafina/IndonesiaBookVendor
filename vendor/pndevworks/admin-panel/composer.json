@@ -1,0 +1,60 @@
+{
+	"name": "pndevworks/admin-panel",
+	"type": "project",
+	"description": "PNDevwork's flagship admin panel",
+	"homepage": "https://gl.dnartworks.co.id/PNDevworks/deps/admin-panel",
+	"license": "propietary",
+	"authors": [
+		{
+			"name": "Chris Qiang",
+			"email": "chris@dnartworks.co.id"
+		}
+	],
+	"require": {
+		"php": "^7.3||^8.0",
+		"codeigniter4/framework": "^4",
+		"pndevworks/flash-messages": "0.1.8",
+		"monolog/monolog": "^2.2"
+	},
+	"require-dev": {
+		"fakerphp/faker": "^1.9",
+		"mikey179/vfsstream": "^1.6",
+		"phpunit/phpunit": "^9.1",
+		"php-mock/php-mock-phpunit": "^2.6"
+	},
+	"suggest": {
+		"ext-fileinfo": "Improves mime type detection for files"
+	},
+	"autoload": {
+		"psr-4": {
+			"PNDevworks\\AdminPanel\\": "src"
+		},
+		"exclude-from-classmap": [
+			"**/Database/Migrations/**"
+		]
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\Support\\": "tests/_support"
+		}
+	},
+	"scripts": {
+		"test": "phpunit --testdox",
+		"test:docker": "docker compose run test-runner composer run test --"
+	},
+	"support": {
+		"forum": "https://gl.dnartworks.co.id/PNDevworks/deps/admin-panel/-/issues",
+		"source": "https://gl.dnartworks.co.id/PNDevworks/deps/admin-panel"
+	},
+	"repositories": {
+		"gl.dnartworks.co.id/50": {
+			"type": "composer",
+			"url": "https://gl.dnartworks.co.id/api/v4/group/50/-/packages/composer/packages.json"
+		}
+	},
+	"config": {
+		"platform": {
+			"php": "7.4"
+		}
+	}
+}

@@ -1,0 +1,18 @@
+# This image is just for running tests only in PHP with PHPUnit. To run the
+# test, you can run it with composer: 
+# 
+#  composer run test:docker
+
+# You will need to login your docker first tough. See
+# https://gitlab.com/PNDevworks/Tools/handbook/-/blob/master/docs/gitlab-registry-authenticate.md
+# or ask your manager :D 
+
+services:
+  test-runner:
+    image: gl.dnartworks.co.id:5050/pndevworks/templates/php-for-unit-testing:8
+    volumes:
+      - ./:/var/www/html
+    working_dir: "/var/www/html"
+    environment:
+      - XDEBUG_MODE=coverage
+    user: "1000:1000"

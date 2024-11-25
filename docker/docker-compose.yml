@@ -1,0 +1,34 @@
+version: '3'
+
+name: codeigniter4 # change to your project name, lowercased
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        # Change according to your needs.
+        - PHPVER=8.3
+    ports:
+      - "127.0.0.1:80:80"
+    volumes:
+      - ./../:/var/www/html
+    links:
+      - db
+    env_file:
+      - ./.env.development
+  db:
+    image: mariadb:11.2
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./mysql-db:/var/lib/mysql
+    env_file:
+      - ./.env.development
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2
+    ports:
+      - "127.0.0.1:8000:80"
+    links:
+      - db
+    env_file:
+      - ./.env.development

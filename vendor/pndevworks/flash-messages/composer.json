@@ -1,0 +1,25 @@
+{
+    "name": "pndevworks/flash-messages",
+    "description": "Flash Mesage with better control over normal CodeIgniter's flash_data.",
+    "type": "library",
+    "license": "proprietary",
+    "homepage": "https://gl.dnartworks.co.id/PNDevworks/deps/flash-messages",
+    "support": {
+        "issues": "https://gl.dnartworks.co.id/PNDevworks/deps/flash-messages/-/issues"
+    },
+    "authors": [
+        {
+            "name": "Christianto",
+            "email": "chris@dnartworks.co.id"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "codeigniter4/framework": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PNDevworks\\FlashMessages\\": "src/"
+        }
+    }
+}
