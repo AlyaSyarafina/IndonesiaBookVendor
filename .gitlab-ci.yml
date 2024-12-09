@@ -1,0 +1,14 @@
+cache:
+  paths:
+    - vendor/
+  key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
+
+analyze:
+  image: gl.dnartworks.co.id:5050/pndevworks/templates/php-for-unit-testing:8.2
+  stage: test
+  before_script:
+    - composer global require phpstan/phpstan --no-progress
+    - composer config --global http-basic.gl.dnartworks.co.id $PND_CI_DEPS_USER $PND_CI_DEPS_TOKEN
+  script:
+    - composer install --no-progress
+    - composer run analyze -- --no-progress --memory-limit=1G
