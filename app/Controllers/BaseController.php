@@ -19,40 +19,33 @@ use Psr\Log\LoggerInterface;
  *
  * For security be sure to declare any new methods as protected or private.
  */
-abstract class BaseController extends Controller
-{
-    /**
-     * Instance of the main Request object.
-     *
-     * @var CLIRequest|IncomingRequest
-     */
-    protected $request;
 
-    /**
-     * An array of helpers to be loaded automatically upon
-     * class instantiation. These helpers will be available
-     * to all other controllers that extend BaseController.
-     *
-     * @var list<string>
-     */
+
+
+
+namespace App\Controllers;
+
+use CodeIgniter\Controller;
+
+class BaseController extends Controller
+{
     protected $helpers = [];
 
-    /**
-     * Be sure to declare properties for any property fetch you initialized.
-     * The creation of dynamic property is deprecated in PHP 8.2.
-     */
-    // protected $session;
-
-    /**
-     * @return void
-     */
-    public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
+    public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
     {
-        // Do Not Edit This Line
+        // Call parent constructor
         parent::initController($request, $response, $logger);
 
-        // Preload any models, libraries, etc, here.
+        // Set layout theme if necessary
+        $this->setTheme();
+    }
 
-        // E.g.: $this->session = \Config\Services::session();
+    private function setTheme()
+    {
+        // Untuk implementasi tema, sesuaikan path dan view file di sini
+        $themePath = 'themes/ibv/';
+        $this->viewPath = $themePath; // Sesuaikan dengan kebutuhan tema Anda
     }
 }
+
+?>
