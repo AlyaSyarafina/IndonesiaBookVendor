@@ -46,7 +46,7 @@ class HomeController extends BaseController{
         $bestSellerBooks = $bookModel->getBestSeller($bestSellerNumber);
         $featuredBooks = $bookModel->getFeatured($featuredNumber);
 
-        return view('home\index', [
+        return view('home/index', [
             'releaseBooks' => $releaseBooks,
             'bestSellerBooks' => $bestSellerBooks,
             'featuredBooks' => $featuredBooks,
