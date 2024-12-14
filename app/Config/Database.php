@@ -12,19 +12,19 @@ class Database extends Config
     /**
      * The directory that holds the Migrations and Seeds directories.
      */
-    public string $filesPath = APPPATH . 'Database' . DIRECTORY_SEPARATOR;
+    public  $filesPath = APPPATH . 'Database' . DIRECTORY_SEPARATOR;
 
     /**
      * Lets you choose which connection group to use if no other is specified.
      */
-    public string $defaultGroup = 'default';
+    public  $defaultGroup = 'default';
 
     /**
      * The default database connection.
      *
      * @var array<string, mixed>
      */
-    public array $default = [
+    public  $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
         'username'     => 'root',
@@ -160,7 +160,7 @@ class Database extends Config
      *
      * @var array<string, mixed>
      */
-    public array $tests = [
+    public  $tests = [
         'DSN'         => '',
         'hostname'    => '127.0.0.1',
         'username'    => '',
